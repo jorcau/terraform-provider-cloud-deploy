@@ -5,7 +5,7 @@ before:
     - ./scripts/goreleaser_before_hooks.sh
 
 builds:
-#  - binary: "{{.ProjectName}}_{{.Tag}}__{{ .Os }}_{{ .Arch }}"
+  - binary: "terraform-provider-cloud-deploy_{{.Tag}}"
   - goos:
       - freebsd
       - windows
@@ -30,3 +30,7 @@ builds:
         goarch: arm
       - goos: solaris
         goarch: arm
+
+archive:
+  files:
+  - none*
