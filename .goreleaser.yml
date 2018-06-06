@@ -1,0 +1,32 @@
+project_name: terraform-provider-cloud-deploy
+
+before:
+  hooks:
+    - ./scripts/goreleaser_before_hooks.sh
+
+builds:
+#  - binary: "{{.ProjectName}}_{{.Tag}}__{{ .Os }}_{{ .Arch }}"
+  - goos:
+      - freebsd
+      - windows
+      - linux
+      - solaris
+      - openbsd
+      - darwin
+  - goarch:
+      - amd64
+      - 386
+      - arm
+  - ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: solaris
+        goarch: 386
+      - goos: darwin
+        goarch: arm
+      - goos: openbsd
+        goarch: arm
+      - goos: windows
+        goarch: arm
+      - goos: solaris
+        goarch: arm
