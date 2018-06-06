@@ -4,10 +4,10 @@ pipelines:
   default:
     - step:
         script:
-          - bitbucket-pipelines.sh
+          - ./bitbucket-pipelines-default.sh
 
   custom:
     release:
       - step:
           script:
-              - curl -sL https://git.io/goreleaser | bash
+              - ./bitbucket-pipelines-release.sh
